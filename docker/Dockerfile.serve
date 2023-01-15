@@ -1,0 +1,6 @@
+FROM ubuntu:focal
+
+COPY target/release/sentiment-backend /server/sentiment-backend
+WORKDIR /server
+
+ENTRYPOINT [ "./sentiment-backend" ]
