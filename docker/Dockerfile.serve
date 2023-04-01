@@ -1,8 +1,8 @@
 FROM ubuntu:focal
 
-COPY target/debug/sentiment-backend /server/sentiment-backend
+COPY target/debug/horta-backend /server/horta-backend
 WORKDIR /server
 
 ENV RUST_LOG=warp
 
-ENTRYPOINT [ "./sentiment-backend" ]
+ENTRYPOINT [ "./horta-backend" ]
