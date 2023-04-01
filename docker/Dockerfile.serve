@@ -1,6 +1,8 @@
 FROM ubuntu:focal
 
-COPY target/release/sentiment-backend /server/sentiment-backend
+COPY target/debug/sentiment-backend /server/sentiment-backend
 WORKDIR /server
+
+ENV RUST_LOG=warp
 
 ENTRYPOINT [ "./sentiment-backend" ]
