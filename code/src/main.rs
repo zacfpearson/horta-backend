@@ -76,7 +76,7 @@ impl Game {
             .iter()
             .filter(|&x| !self.cards_played.contains(&x))
             .find(|&x| x.player == player)
-            .map(|x| x.clone()) //TODO: try to remove clone here. Needed because the reference to the card keeps the borrow to the 
+            .map(|x| x.clone())
     }
 
     pub fn current_difference(&self, card: &Card) -> u8 {
