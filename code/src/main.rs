@@ -131,9 +131,9 @@ pub async fn game_connection(ws: WebSocket, game: Game) {
             let current_difference = game_instance.current_difference(&card) as u64;
             
             let sleep_time = if game_instance.next_card(Player::Person) == None {
-                400
+                300
             } else {
-                current_difference * 2000
+                current_difference * 700
             };
 
             let result = cvar.wait_timeout(game_instance, Duration::from_millis(sleep_time as u64)).unwrap();
