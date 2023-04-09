@@ -221,12 +221,7 @@ async fn main() {
 
     let routes = health_route
         .or(card_routes)
-        .or(ws_route)
-        .with(warp::cors()
-            .allow_any_origin()
-            .allow_headers(vec!["Authorization", "X-Requested-With", "Cache-Control", "Accept-Language","Connection","Sec-Fetch-Dest","Sec-Fetch-Site","User-Agent","Host","Sec-Fetch-Mode", "Referer", "Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers","Accept","Content-Type","Access-Control-Allow-Headers","Access-Control-Allow-Methods","Access-Control-Allow-Origin"])
-            .allow_methods(vec!["POST", "GET","OPTIONS"]))
-            .with(warp::log("cors test"));
+        .or(ws_route);
 
-    warp::serve(routes).run(([127, 0, 0, 1], 3030)).await;
+    warp::serve(routes).run(([127, 0, 0, 1], 80)).await;
 }
