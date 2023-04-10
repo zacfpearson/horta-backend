@@ -219,9 +219,13 @@ async fn main() {
         .and(games.clone())
         .and_then(ws_handler);
 
-    let routes = health_route
-        .or(card_routes)
-        .or(ws_route);
+    let routes = warp::path("horta").and(
+        warp::path("api").and(
+            health_route
+            .or(card_routes)
+            .or(ws_route)
+        )
+    );
 
     warp::serve(routes).run(([127, 0, 0, 1], 80)).await;
 }
